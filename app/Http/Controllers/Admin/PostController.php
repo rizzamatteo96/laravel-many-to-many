@@ -53,7 +53,6 @@ class PostController extends Controller
             'category_id' => 'nullable|exists:categories,id'
         ]);
 
-
         // recupero i dati dal form
         $newPost = $request->all();
         
@@ -75,6 +74,8 @@ class PostController extends Controller
         // Invio i dati e li salvo nel DB
         $upPost->fill($newPost);
         $upPost->save();
+
+        $upPost->tags()->attach($request->tags);
 
         return redirect()->route('admin.posts.index');
 
