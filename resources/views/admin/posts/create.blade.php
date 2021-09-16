@@ -50,6 +50,21 @@
     </div>
     {{-- Fine - Campo inserimento descrizione --}}
 
+    {{-- Inizio - Campo di selezione dei tags --}}
+    <div class="mb-3">
+      @foreach ($tags as $tag)
+        <span class="mx-1">
+          <input type="checkbox" id="{{$tag->id}}" name="tags[]" value="{{$tag->id}}"
+          @if (in_array($tag->id, old('tags',[])))
+            checked
+          @endif>
+          <label for="{{$tag->id}}">{{$tag->name}}</label>
+        </span>
+      @endforeach
+    </div>
+    {{-- Fine - Campo di selezione dei tags --}}
+
+
     <a href="{{route('admin.posts.index')}}" class="btn btn-outline-dark"><i class="fas fa-arrow-left me-2"></i> Torna indietro</a>
     <button type="submit" class="btn btn-primary">Salva</button>
   </form>

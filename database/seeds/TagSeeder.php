@@ -24,6 +24,5 @@ class TagSeeder extends Seeder
 
       $newTag->save();
     }
-
   }
 }
