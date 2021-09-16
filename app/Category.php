@@ -11,6 +11,7 @@ class Category extends Model
         'slug'
     ];
 
+    // Creo la relazione con la tabella dei post
     public function categoryPost(){
         return $this->hasMany('App\Post');
     }
