@@ -7,6 +7,24 @@
   </div>
   <div class="card-body">
     <p class="card-text">{{$post->description}}</p>
+
+    <p class="card-text mt-5">
+      <h6 class="d-inline-block">Categoria : </h6>
+      @if (isset($post->postCategory->name))
+        <span>{{$post->postCategory->name}}</span>
+      @else
+        <span>{{'non selezionata'}}</span>
+      @endif
+    </p>
+
+    <p class="card-text">
+      <h6 class="d-inline-block">Tags : </h6>
+      @forelse ($post->tags as $tag)
+        <span class="badge rounded-pill bg-secondary text-white">{{$tag->name}}</span>  
+      @empty
+        <span>{{'Non ci sono tags'}}</span>
+      @endforelse
+    </p>
   </div>
 </div>
 <div class="my-4">
